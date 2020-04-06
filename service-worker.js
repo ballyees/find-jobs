@@ -14,13 +14,13 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ballyees/find-jobs.git/precache-manifest.46233b4deb94d1c84082c09dee2f3ec9.js"
+    "precache-manifest.46233b4deb94d1c84082c09dee2f3ec9.js"
 );
 
 self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
-  }
+    if (event.data && event.data.type === 'SKIP_WAITING') {
+        self.skipWaiting();
+    }
 });
 
 workbox.core.clientsClaim();
@@ -33,7 +33,7 @@ workbox.core.clientsClaim();
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/ballyees/find-jobs.git/index.html"), {
-  
-  blacklist: [/^\/_/,/\/[^\/?]+\.[^\/]+$/],
+workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("index.html"), {
+
+    blacklist: [/^\/_/, /\/[^\/?]+\.[^\/]+$/],
 });
