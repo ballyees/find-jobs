@@ -7,23 +7,39 @@ import FindSVG from './img/find2.svg'
 import { MDBInput } from "mdbreact";
 
 export default class Login extends React.Component{
-    
-    state = {
-        email: '',
-        password: '',
-        company: 0,
+    constructor(props){
+        super(props)
+        this.state = {
+            email: '',
+            password: '',
+            rememberMe: false,
+            company: 0,
+        }
     }
 
     onChange = e => {
         const { name, value } = e.target
         console.log(name + " " + value)
-        this.setState({
-          [name]: value
-        })
+        if(name === 'rememberMe'){
+            this.setState({
+                [name]: this.refs.rememberMe.checked
+            })
+        }else{
+            this.setState({
+                [name]: value
+            })
+        }
+        
     }
 
     SubmitBtn = () => {
         console.log(this.state)
+        this.props.callBack(true, this.state.rememberMe)
+        if(this.state.rememberMe){
+            localStorage.setItem('isLogin', '1')
+        }else{
+            localStorage.setItem('isLogin', '0')
+        }
     }
 
     KeyPressEnter = e => {
@@ -58,6 +74,10 @@ export default class Login extends React.Component{
                                                     <MDBInput type="password" label="Password" outline name="password" onChange={this.onChange} onKeyPress={this.KeyPressEnter} />
                                                     {/* <div className="form-group"><input className="form-control form-control-user" type="input" id="username" aria-describedby="emailHelp" placeholder="Enter Username..." /></div>
                                                     <div className="form-group"><input className="form-control form-control-user" type="password" id="password" placeholder="Password" /></div> */}
+                                                    <div className="custom-control custom-checkbox" style={{paddingBottom: "4%", textAlign: "left"}}>
+                                                        <input type="checkbox" className="custom-control-input" id="rememberMe" name="rememberMe" onChange={this.onChange} ref="rememberMe" />
+                                                        <label className="custom-control-label" htmlFor="rememberMe">Remember Me</label>
+                                                    </div>
                                                     <button className="btn btn-info btn-block text-white btn-user" id="submit-btn" type="submit" style={{borderRadius: "20px"}} onClick={this.SubmitBtn}>SIGN IN</button>
                                                     <hr />
                                                 </div>

@@ -1,9 +1,12 @@
 import React from 'react';
 
 export default class App extends React.Component{
-  state = {
-    f: []
-  }
+    constructor(props){
+        super(props)
+        this.state = {
+            f: []
+        }
+    }
 
   componentDidMount(){
       fetch('https://jsonplaceholder.typicode.com/todos').then(
@@ -18,7 +21,7 @@ export default class App extends React.Component{
   render(){
     let data = this.state.f.map(
         e => (
-            <div className={e.id}>
+            <div key={e.id}>
                 <span>{e.title}</span>
             </div>
         )

@@ -14,7 +14,7 @@ export default function Home(){
                             <div style={{paddingTop: "10%"}}>
                                 <h1 className="hero-title" style={{textShadow: "0 3px 3px rgba(0, 0, 0, 0.4)", color: "#fff"}}>งานที่ตรงความต้องการ ?</h1>
                                 <p className="hero-subtitle" style={{maxWidth: "600px", margin: "25px auto", padding: "10px 15px", textShadow: "0 3px 3px rgba(0, 0, 0, 0.4)", color: "#fff"}}>หางานไม่ที่ตรงความต้องการยากใช่ไหม อยากจ้างพนักงานที่มีคุณสมบัติตรงกับที่ต้องการ ให้เราช่วยสิ SaeRoy</p>
-                                <Link to="#"><button className="btn btn-primary hero-button plat" style={{boxShadow: "0 0 0 0 #048f83!important"}} >Learn more</button></Link>
+                                <Link to="/find-jobs/data"><button className="btn btn-primary hero-button plat" style={{boxShadow: "0 0 0 0 #048f83!important"}} >Learn more</button></Link>
                             </div>
                         </div>
                     </div>
