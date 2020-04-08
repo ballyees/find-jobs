@@ -1,31 +1,6 @@
-div.jumbotron.carousel-hero {
-    color: #fff;
-    text-align: center;
-    background-size: cover;
-    background-position: center;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    margin-bottom: 0;
-}
-
-
 /* div.jumbotron.hero-technology {
-    background-image: url('/src/Components/img/young-college-students.jpg');
+    background-image: url('./img/young-college-students.jpg');
 } */
-
-h1.hero-title,
-h2.hero-title,
-h3.hero-title {
-    text-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
-    color: #fff;
-}
-
-p.hero-subtitle {
-    max-width: 600px;
-    margin: 25px auto;
-    padding: 10px 15px;
-    color: #fff;
-}
 
 .plat {
     border-radius: 0px;
@@ -34,6 +9,10 @@ p.hero-subtitle {
 .btn-primary.focus,
 .btn-primary:focus {
     box-shadow: 0 0 0 0 #048f83!important;
+}
+
+div.te.bg {
+    background-image: url('./img/young-college-students.jpg');
 }
 
 .btn-primary:hover {
