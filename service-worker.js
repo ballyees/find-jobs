@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ballyees/find-jobs.git/precache-manifest.4b44ce532e4c8dc599949d1ac036a299.js"
+  "/ballyees/find-jobs.git/precache-manifest.4afc313c91304e765e4dd7b5f902c275.js"
 );
 
 self.addEventListener('message', (event) => {
