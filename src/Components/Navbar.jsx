@@ -35,7 +35,7 @@ export default class Navbar extends Component{
                               <Link to="/find-jobs/login"><span className="nav-link active js-scroll-trigger" style={{paddingTop: 18}} onClick={this.toggleMenu}>Sign in</span></Link>
                             </li>
                             <li className="nav-item nav-link js-scroll-trigger" role="presentation">
-                            <Link to="/find-jobs/register"><MDBBtn type="button" style={{borderRadius: "20px"}} outline color="info" onClick={this.toggleMenu} >Sign Up</MDBBtn></Link>
+                            <Link to="/find-jobs/register" target="_blank"><MDBBtn type="button" style={{borderRadius: "20px"}} outline color="info" onClick={this.toggleMenu} >Sign Up</MDBBtn></Link>
                               {/* <Link to="/register"><button type="button" className="btn action-button btn-primary" style={{borderRadius: "20px"}} onClick={this.toggleMenu}>Sign Up</button></Link> */}
                             </li>
                         </ul>
