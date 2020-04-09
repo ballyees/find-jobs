@@ -8,8 +8,8 @@ export default class App extends React.Component{
         }
     }
 
-  componentDidMount(){
-      fetch('https://jsonplaceholder.typicode.com/todos').then(
+    async componentDidMount(){
+      await fetch('https://jsonplaceholder.typicode.com/todos').then(
           result => result.json()
       ).then(
           data => {

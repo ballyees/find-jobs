@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import './Login-From-Dark.css'
 import starSky from './img/n_star-sky.jpg'
 import FindSVG from './img/find2.svg'
@@ -14,6 +14,7 @@ export default class Login extends React.Component{
             password: '',
             rememberMe: false,
             company: 0,
+            isSuccess: false
         }
     }
 
@@ -33,12 +34,18 @@ export default class Login extends React.Component{
     }
 
     SubmitBtn = () => {
-        console.log(this.state)
-        this.props.callBack(true, this.state.rememberMe)
-        if(this.state.rememberMe){
-            localStorage.setItem('isLogin', '1')
-        }else{
-            localStorage.setItem('isLogin', '0')
+        let success = true
+        if (success){
+            console.log(this.state)
+            this.props.callBack(true)
+            if(this.state.rememberMe){
+                localStorage.setItem('isLogin', '1')
+            }else{
+                localStorage.setItem('isLogin', '0')
+            }
+            this.setState({
+                isSuccess: true
+            })
         }
     }
 
@@ -82,6 +89,7 @@ export default class Login extends React.Component{
                                                     <hr />
                                                 </div>
                                                 <Link to="/find-jobs/home"><span className="forgot">Forgot your password?</span></Link>
+                                                {this.state.isSuccess?<Redirect to="/find-jobs/home" />:<div></div>}
                                                 <hr />
                                                 <span className="forgot">Don't have an account? </span><Link to="/find-jobs/register">Sign Up</Link>
                                             </div>

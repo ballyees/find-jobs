@@ -13,23 +13,33 @@ import {BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 export default class App extends React.Component{
   constructor(props){
     super(props)
-    let isLogin = 0
-    if(!localStorage.getItem('isLogin')){
-      localStorage.setItem('isLogin', 0)
-    }else{
-      isLogin = parseInt(localStorage.getItem('isLogin'))
+    let isLogin = false
+    if(localStorage.getItem('username') && localStorage.getItem('password')){
+      // login api 
     }
     this.state = {
-      loginSuccess: Boolean(isLogin)
+      loginSuccess: isLogin
     }
   }
-  changeLogin = (e, remember) =>{
+  changeLogin = (e) =>{
     this.setState({
       loginSuccess: e
     })
   }
 
+  renderLogin(){
+    if(this.state.loginSuccess){
+      return (<Data />)
+    }
+  }
+
   render(){
+    let isLoginComponent
+    if (this.state.loginSuccess){
+      isLoginComponent = <Data />
+    }else{
+      isLoginComponent = <Redirect to="/find-jobs/home" />
+    }
     return (
       <Router>
           <div className="App">
@@ -38,7 +48,8 @@ export default class App extends React.Component{
             <Route exact path="/find-jobs/home" render={(props) => <Home loginSuccess={this.state.loginSuccess} />} />
             <Route exact path="/find-jobs/login" render={(props) => <Login loginSuccess={this.state.loginSuccess} callBack={this.changeLogin} />} />
             <Route exact path="/find-jobs/register" render={(props) => <Register loginSuccess={this.state.loginSuccess} />} />
-            <Route exact path="/find-jobs/data" render={(props) => (!this.state.loginSuccess?(<Redirect to="/find-jobs/home" />):(<Data />))} />
+            <Route exact path="/find-jobs/data" render={(props) => (isLoginComponent)} />
+            {/* <Route exact path="/find-jobs/data" render={(props) => (!this.state.loginSuccess?(<Redirect to="/find-jobs/home" />):(<Data />))} /> */}
           </div>
       </Router>
     );

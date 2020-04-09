@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from './Navbar'
 import imgTech from './img/n_young-college-students.jpg'
+import HomeData from './HomeData'
+
 export default function Home(){
     return (
         <div>
@@ -21,6 +23,7 @@ export default function Home(){
                 </div>
             </div>
         </section>
+        <HomeData />
         </div>
     );
 }
