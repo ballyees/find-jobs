@@ -17,6 +17,7 @@ export default class Register extends React.Component{
         companyName: '',
         contactNumber: '',
         company: '',
+        gender: 'm',
     }
 
     onChange = e => {
@@ -34,6 +35,7 @@ export default class Register extends React.Component{
                 lName: '',
                 companyName: '',
                 contactNumber: '',
+                gender: 'm'
             }
             this.setState(resetState)
         }
@@ -64,6 +66,12 @@ export default class Register extends React.Component{
         }else{
             InputGroup = (
                 <div className="jobSeekerInput">
+                    <div className="form-group">
+                        <select className="browser-default custom-select" name="gender" onChange={this.onChange}>
+                            <option value="m">Male</option>
+                            <option value="f">Female</option>
+                        </select>
+                    </div>
                     <MDBInput label="First Name" outline name="fName" onChange={this.onChange} onKeyPress={this.KeyPressEnter} ref="fName" />
                     <MDBInput label="Last Name" outline name="lName" onChange={this.onChange} onKeyPress={this.KeyPressEnter} ref="lName" />
                 </div>

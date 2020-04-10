@@ -1,22 +1,17 @@
 import React from 'react'
 import profile from './img/profile.png'
 
-import { MDBInput, MDBBtn } from "mdbreact";
+import { MDBInput, MDBBtn, MDBIcon } from "mdbreact";
+import { Link } from 'react-router-dom';
 
 export default class Profile extends React.Component{
 
     onChange = e => {
         const { name, value } = e.target
         console.log(name + " " + value)
-        if(name === 'rememberMe'){
-            this.setState({
-                [name]: this.refs.rememberMe.checked
-            })
-        }else{
-            this.setState({
-                [name]: value
-            })
-        }
+        this.setState({
+            [name]: value
+        })
     }
 
     render(){
@@ -103,7 +98,9 @@ export default class Profile extends React.Component{
                                         </div>
                                         <textarea className="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
                                         </div>
-                                        <MDBBtn type="button" style={{borderRadius: "20px", width: "100%", paddingTop: 10}} outline color="info" onClick={this.toggleMenu} >Send</MDBBtn>
+                                        <MDBBtn type="button" style={{borderRadius: "20px", width: "100%", paddingTop: 10}} outline color="info" onClick={this.toggleMenu} >Send<MDBIcon far icon="paper-plane" className="ml-1" /></MDBBtn>
+                                        <Link to="/find-jobs/home"><button className="back" style={{opacity: 0.5, position: "fixed", bottom: "20px", right: "10px", borderRadius: "5px", border: "none", fontSize: "150%", backgroundColor: "#33B5E5"}}>Go to home</button></Link>
+                                        <Link to="/find-jobs/home"><button className="back" style={{opacity: 0.5, position: "fixed", bottom: "20px", left: "10px", borderRadius: "5px", border: "none", fontSize: "150%", backgroundColor: "#33B5E5"}}>Go to home</button></Link>
                                     </div>
                                 </div>
                             </div>

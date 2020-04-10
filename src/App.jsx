@@ -9,6 +9,7 @@ import Home from './Components/Home';
 import Register from './Components/Register';
 import Data from './Components/Data';
 import Profile from './Components/Profile';
+
 import {BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
 export default class App extends React.Component{
@@ -20,10 +21,20 @@ export default class App extends React.Component{
     }
     this.state = {
       loginSuccess: isLogin,
-      information: {}
+      information: {
+        company: true
+      }
     }
   }
-  changeLogin = (e) =>{
+
+  Logout = () =>{
+    this.setState({ 
+      loginSuccess: false,
+      information: {}
+    })
+  }
+
+  changeLogin = (e) => {
     this.setState({
       loginSuccess: e
     })
@@ -32,6 +43,8 @@ export default class App extends React.Component{
   renderLogin(){
     if(this.state.loginSuccess){
       return (<Data />)
+    }else{
+      return (<div></div>)
     }
   }
 
@@ -45,13 +58,15 @@ export default class App extends React.Component{
     return (
       <Router>
           <div className="App">
-            <Route exact path="/find-jobs" render={(props) => <Home loginSuccess={this.state.loginSuccess} />} />
-            <Route exact path="/" render={(props) => <Home loginSuccess={this.state.loginSuccess} />} />
-            <Route exact path="/find-jobs/home" render={(props) => <Home loginSuccess={this.state.loginSuccess} />} />
+            <Route exact path="/find-jobs" render={(props) => <Home loginSuccess={this.state.loginSuccess} logout={this.Logout} info={this.state.information} />} />
+            <Route exact path="/" render={(props) => <Home loginSuccess={this.state.loginSuccess} logout={this.Logout} info={this.state.information} />} />
+            <Route exact path="/find-jobs/home" render={(props) => <Home loginSuccess={this.state.loginSuccess} logout={this.Logout} info={this.state.information}/>} />
             <Route exact path="/find-jobs/login" render={(props) => <Login loginSuccess={this.state.loginSuccess} callBack={this.changeLogin} />} />
             <Route exact path="/find-jobs/register" render={(props) => <Register loginSuccess={this.state.loginSuccess} />} />
             <Route exact path="/find-jobs/data" render={(props) => (isLoginComponent)} />
-            <Route exact path="/find-jobs/profile" render={(props) => <Profile />} />
+            <Route exact path="/find-jobs/profile" render={(props) => <Profile/>} />
+            <Route exact path="/find-jobs/search" render={(props) => <Profile/>} />
+            {/* <Route exact path="/find-jobs/post" render={(props) => <Profile/>} /> */}
             {/* <Route exact path="/find-jobs/data" render={(props) => (!this.state.loginSuccess?(<Redirect to="/find-jobs/home" />):(<Data />))} /> */}
           </div>
       </Router>
