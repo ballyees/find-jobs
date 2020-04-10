@@ -22,7 +22,7 @@ export default class App extends React.Component{
     this.state = {
       loginSuccess: isLogin,
       information: {
-        company: true
+        company: false
       }
     }
   }
@@ -36,7 +36,10 @@ export default class App extends React.Component{
 
   changeLogin = (e) => {
     this.setState({
-      loginSuccess: e
+      loginSuccess: e.isLoginSuccess,
+      information: {
+        company: e.company
+      }
     })
   }
 

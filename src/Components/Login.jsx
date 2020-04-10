@@ -36,16 +36,17 @@ export default class Login extends React.Component{
     SubmitBtn = () => {
         let success = true
         if (success){
-            console.log(this.state)
-            this.props.callBack(true)
+            this.setState({
+                isSuccess: true
+            })
+            this.props.callBack({isLoginSuccess: true, company: Boolean(this.state.company)})
+            // this.props.callBack({isLoginSuccess: true, company: true})
             if(this.state.rememberMe){
                 localStorage.setItem('isLogin', '1')
             }else{
                 localStorage.setItem('isLogin', '0')
             }
-            this.setState({
-                isSuccess: true
-            })
+            console.log(this.state)
         }
     }
 

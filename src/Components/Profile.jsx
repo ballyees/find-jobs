@@ -90,14 +90,15 @@ export default class Profile extends React.Component{
                                         <MDBInput label="Name" outline name="name" onChange={this.onChange} onKeyPress={this.KeyPressEnter} />
                                         <MDBInput label="Email Address" outline name="email" onChange={this.onChange} onKeyPress={this.KeyPressEnter} />
                                         <MDBInput label="Phone Number" outline name="phoneNumber" onChange={this.onChange} onKeyPress={this.KeyPressEnter} />
-                                        <div className="input-group">
-                                        <div className="input-group-prepend">
-                                            <span className="input-group-text" id="basic-addon">
-                                            <i className="fas fa-pencil-alt prefix"></i>
-                                            </span>
-                                        </div>
-                                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
-                                        </div>
+                                        {/* <div className="input-group">
+                                            <div className="input-group-prepend">
+                                                <span className="input-group-text" id="basic-addon">
+                                                <i className="fas fa-pencil-alt prefix"></i>
+                                                </span>
+                                            </div>
+                                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="5" name="message"></textarea>
+                                        </div> */}
+                                        <MDBInput type="textarea" label="Message to me" outline name="message" onChange={this.onChange} onKeyPress={this.KeyPressEnter} />
                                         <MDBBtn type="button" style={{borderRadius: "20px", width: "100%", paddingTop: 10}} outline color="info" onClick={this.toggleMenu} >Send<MDBIcon far icon="paper-plane" className="ml-1" /></MDBBtn>
                                         <Link to="/find-jobs/home"><button className="back" style={{opacity: 0.5, position: "fixed", bottom: "20px", right: "10px", borderRadius: "5px", border: "none", fontSize: "150%", backgroundColor: "#33B5E5"}}>Go to home</button></Link>
                                         <Link to="/find-jobs/home"><button className="back" style={{opacity: 0.5, position: "fixed", bottom: "20px", left: "10px", borderRadius: "5px", border: "none", fontSize: "150%", backgroundColor: "#33B5E5"}}>Go to home</button></Link>

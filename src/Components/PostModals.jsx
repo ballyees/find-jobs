@@ -1,12 +1,12 @@
 import React from 'react'
 import { MDBContainer, MDBJumbotron, MDBBtn, MDBInput, MDBInputGroup, MDBModal, MDBModalBody, MDBModalHeader, MDBIcon } from 'mdbreact';
-    
+import Style from 'style-it'    
 
 export default class PostModals extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            modal: true,
+            modal: false,
             roleSize: 1,
         }
     }
@@ -79,7 +79,7 @@ export default class PostModals extends React.Component{
                             <MDBInput type="number" label="เงินเดือน(บาท)" outline name="salary" onChange={this.onChange} onKeyPress={this.KeyPressEnter} />
                             <MDBInput label="สถานที่ปฏิบัติงาน" outline name="location" onChange={this.onChange} onKeyPress={this.KeyPressEnter} />
                             <div className="col-form-label" style={{textAlign: "left"}}><span>วันหยุด : </span></div>
-                            <div className="inputGroup">
+                            <div className="inputGroup" style={{textAlign: "left"}}>
                                 <div className="custom-control custom-checkbox custom-control-inline">
                                     <input type="checkbox" className="custom-control-input" id="day1" value="จ" />
                                     <label className="custom-control-label" htmlFor="day1">วันจันทร์</label>
@@ -121,13 +121,19 @@ export default class PostModals extends React.Component{
                             />
                             <div className="col-form-label" style={{textAlign: "left"}}><span>หน้าที่ความรับผิดชอบ</span></div>
                             <div className="def-number-input number-input" style={{textAlign: "left"}}>
-                                <MDBIcon icon="plus-circle" onClick={this.plus} size="2x"/>
-                                <MDBIcon icon="minus-circle" onClick={this.minus} size="2x"/>
+                                <Style>{`.btn-icon-cus:hover {color: #4285f4 !important;text-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)}
+                                .btn-icon-cus:active {background-color: white;transform: translateY(4px);}`}
+                                <MDBIcon icon="plus-circle" onClick={this.plus} style={{fontSize: "225%", paddingRight: 20}} className="btn-icon-cus" />
+                                </Style>
+                                <Style>{`.btn-icon-cus:hover {color: #ff3547 !important;text-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)}
+                                .btn-icon-cus:active {background-color: white;transform: translateY(4px);}`}
+                                <MDBIcon icon="minus-circle" onClick={this.minus} style={{fontSize: "225%"}} className="btn-icon-cus" />
+                                </Style>
                             </div>
                             {role}
                             <hr className="my-2" />
                             <div className="col-form-label" style={{textAlign: "left"}}><span>คุณสมบัติ : </span></div>
-                            <div className="inputGroup">
+                            <div className="inputGroup" style={{textAlign: "left"}}>
                                 <div className="custom-control custom-checkbox custom-control-inline">
                                     <input type="checkbox" className="custom-control-input" id="gender1" value="m" />
                                     <label className="custom-control-label" htmlFor="gender1">ชาย</label>
