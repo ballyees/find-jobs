@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { MDBBtn } from "mdbreact";
 import PostModals from './PostModals';
+import SearchModals from './SearchModals';
 import './Navbar.css'
 
 export default class Navbar extends Component{
@@ -34,7 +35,8 @@ export default class Navbar extends Component{
         }else{
           company = (
             <li className="nav-item nav-link js-scroll-trigger" role="presentation">
-              <Link to="/find-jobs/profile"><MDBBtn type="button" style={{borderRadius: "20px"}} outline onClick={this.toggleMenu} >Search</MDBBtn></Link>
+              <SearchModals onClickP2C={this.toggleMenu} style={{borderRadius: "20px"}} />
+              {/* <Link to="/find-jobs/profile"><MDBBtn type="button" style={{borderRadius: "20px"}} outline onClick={this.toggleMenu} >Search</MDBBtn></Link> */}
             </li>
           )
         }

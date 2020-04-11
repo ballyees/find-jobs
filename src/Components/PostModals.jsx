@@ -148,8 +148,12 @@ export default class PostModals extends React.Component{
                             <MDBInput label="ประสบการณ์" outline name="experience" onChange={this.onChange} onKeyPress={this.KeyPressEnter} />
                             <MDBInput type="textarea" style={{borderRadius: ".25rem"}} label="อื่นๆ" outline name="etc" onChange={this.onChange} onKeyPress={this.KeyPressEnter} />
                             <hr className="my-2" />
-                            <MDBBtn name="submit" onClick={this.toggle} outline color="info" style={{borderRadius: "20px", width: "100%"}}>Submit</MDBBtn>
-                            <MDBBtn color="secondary" name="close" onClick={this.toggle} outline style={{borderRadius: "20px", width: "100%"}}>Close</MDBBtn>
+                            <Style>{`.submit:active {background-color: white;transform: translateY(4px);}`}
+                                <MDBBtn name="submit" onClick={this.toggle} outline color="info" style={{borderRadius: "20px", width: "100%"}} className="submit">Submit</MDBBtn>
+                            </Style>
+                            <Style>{`.closed:active {background-color: white;transform: translateY(4px);}`}
+                                <MDBBtn color="secondary" name="close" onClick={this.toggle} outline style={{borderRadius: "20px", width: "100%"}} className="closed" >Close</MDBBtn>
+                            </Style>
                         </MDBJumbotron>
                     </MDBContainer>
                 </MDBModalBody>
