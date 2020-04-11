@@ -9,11 +9,12 @@ export default class App extends React.Component{
     }
 
     async componentDidMount(){
-      await fetch('https://jsonplaceholder.typicode.com/todos').then(
+      await fetch('https://work-final.herokuapp.com/transactions').then(
           result => result.json()
       ).then(
           data => {
               this.setState({f: data})
+              console.log(data)
         }
       )
   }
@@ -21,8 +22,9 @@ export default class App extends React.Component{
   render(){
     let data = this.state.f.map(
         e => (
-            <div key={e.id}>
-                <span>{e.title}</span>
+            <div key={e._id}>
+                {/* <span>{e.title}</span> */}
+                <span>{e.name}</span>
             </div>
         )
     )

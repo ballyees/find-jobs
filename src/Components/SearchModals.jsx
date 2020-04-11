@@ -52,7 +52,7 @@ export default class PostModals extends React.Component{
                 <MDBModalHeader toggle={this.toggle} style={{color: "rgb(0, 0, 0)"}}></MDBModalHeader>
                 <MDBModalBody>
                     <MDBContainer style={{color: "rgb(0, 0, 0)"}}>
-                        <MDBJumbotron style={{width: "100%"}}>
+                        <MDBJumbotron style={{width: "100%", borderRadius: "7px"}}>
                             <h2>SEARCHING COMPANY</h2>
                             <hr className="my-2" />
                             <div className="form-group">
@@ -70,11 +70,11 @@ export default class PostModals extends React.Component{
                     </MDBContainer>
                     {/* result of search */}
                     <MDBContainer style={{color: "rgb(0, 0, 0)"}}>
-                        <MDBJumbotron style={{width: "100%"}}>
+                        <MDBJumbotron style={{width: "100%", borderRadius: "7px"}}>
                             <h2>SEARCHING RESULTS</h2>
                             <div className="row">
                                 <div className="col-lg-12" style={{paddingBottom: 4}}>
-                                    <div className="card">
+                                    <div className="card" style={{width: "100%", borderRadius: "6px"}}>
                                         <div className="card-body">
                                             <h5 className="card-title" style={{textAlign: "left"}}>Name ..........</h5>
                                             <hr/>
@@ -88,7 +88,7 @@ export default class PostModals extends React.Component{
                             <hr className="my-2" />
                             <div className="row">
                                 <div className="col-lg-12" style={{paddingBottom: 4}}>
-                                    <div className="card">
+                                    <div className="card" style={{width: "100%", borderRadius: "6px"}}>
                                         <div className="card-body">
                                             <h5 className="card-title" style={{textAlign: "left"}}>Name ..........</h5>
                                             <hr/>

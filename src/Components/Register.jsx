@@ -74,6 +74,7 @@ export default class Register extends React.Component{
                     </div>
                     <MDBInput label="First Name" outline name="fName" onChange={this.onChange} onKeyPress={this.KeyPressEnter} ref="fName" />
                     <MDBInput label="Last Name" outline name="lName" onChange={this.onChange} onKeyPress={this.KeyPressEnter} ref="lName" />
+                    <MDBInput label="Job" outline name="job" onChange={this.onChange} onKeyPress={this.KeyPressEnter} ref="job" />
                 </div>
             )
         }

@@ -71,7 +71,7 @@ export default class PostModals extends React.Component{
                 <MDBModalHeader toggle={this.toggle} style={{color: "rgb(0, 0, 0)"}}></MDBModalHeader>
                 <MDBModalBody>
                     <MDBContainer style={{color: "rgb(0, 0, 0)"}}>
-                        <MDBJumbotron style={{width: "100%"}}>
+                        <MDBJumbotron style={{width: "100%", borderRadius: "7px"}}>
                             <h2>POST</h2>
                             <div className="col-form-label" style={{textAlign: "left"}}><span>รายละเอียดงาน : </span></div>
                             <MDBInput label="หัวข้อ" outline name="header" onChange={this.onChange} onKeyPress={this.KeyPressEnter} />
