@@ -9,6 +9,7 @@ import Home from './Components/Home';
 import Register from './Components/Register';
 import Data from './Components/Data';
 import Profile from './Components/Profile';
+import Tokenizer from './Components/Tokenizer';
 
 import {BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
@@ -23,7 +24,8 @@ export default class App extends React.Component{
       loginSuccess: isLogin,
       information: {
         company: false
-      }
+      },
+      tokenizer: new Tokenizer('Tokenizer')
     }
   }
 
@@ -41,6 +43,7 @@ export default class App extends React.Component{
         company: e.company
       }
     })
+    console.log(this.state.tokenizer.getTostring())
   }
 
   renderLogin(){
@@ -64,7 +67,7 @@ export default class App extends React.Component{
             <Route exact path="/find-jobs" render={(props) => <Home loginSuccess={this.state.loginSuccess} logout={this.Logout} info={this.state.information} />} />
             <Route exact path="/" render={(props) => <Home loginSuccess={this.state.loginSuccess} logout={this.Logout} info={this.state.information} />} />
             <Route exact path="/find-jobs/home" render={(props) => <Home loginSuccess={this.state.loginSuccess} logout={this.Logout} info={this.state.information}/>} />
-            <Route exact path="/find-jobs/login" render={(props) => <Login loginSuccess={this.state.loginSuccess} callBack={this.changeLogin} />} />
+            <Route exact path="/find-jobs/login" render={(props) => <Login loginSuccess={this.state.loginSuccess} Tokenizer={this.state.tokenizer} callBack={this.changeLogin} />} />
             <Route exact path="/find-jobs/register" render={(props) => <Register loginSuccess={this.state.loginSuccess} />} />
             <Route exact path="/find-jobs/data" render={(props) => (isLoginComponent)} />
             <Route exact path="/find-jobs/profile" render={(props) => <Profile/>} />
