@@ -43,7 +43,7 @@ export default class App extends React.Component{
         company: e.company
       }
     })
-    console.log(this.state.tokenizer.getTostring())
+    console.log(this.state.tokenizer.getToString())
   }
 
   renderLogin(){

@@ -11,21 +11,21 @@ export default class Tokenizer {
         return this.#token
     }
 
-    getTostring(){
+    getToString(){
         return `${this.#username} :: ${this.#type} :: ${this.#token}`
     }
 
     setUserLogin = (data) => {
         console.log(data)
         this.#username = data[ConfigureTokenizer.keyResponseData][0].username
-        this.#token = data.token
+        this.#token = data[ConfigureTokenizer.keyTokenResponse]
         this.#type = data[ConfigureTokenizer.keyResponseData][0].type
         console.log(this.#username, this.#type, this.#token)
     }
 
     async setRefershtoken(response){
         if (response.hasOwnProperty(ConfigureTokenizer.keyTokenResponse)) {
-            console.log('have a token')
+            this.#token = response[ConfigureTokenizer.keyTokenResponse]
         }else{
             console.log(`don't have token`)
         }
@@ -33,19 +33,18 @@ export default class Tokenizer {
 
     async Login(username, password){
         let data = {"username": username, "password": password}
-        let response = await fetch(ConfigureTokenizer.proxyAnywhereAndUrlUserLogin, {
+        let options = {
             method: 'POST',
             headers: {
-                // "Access-Control-Allow-Origin": ConfigureTokenizer.proxyHost,
-                // "Access-Control-Allow-Methods": "*",
-                // "Access-Control-Allow-Headers": "*",
-                // "Accept": "*/*",
                 "Content-Type": 'application/json',
+                // "Content-Type": 'application/x-www-form-urlencoded',
                 "Content-Length": Buffer.byteLength(data)
             },
             mode: 'cors',
-            body: JSON.stringify({"username": username, "password": password})
-        }).then(response => response)
+            body: JSON.stringify(data)
+        }
+        
+        let response = await fetch(ConfigureTokenizer.proxyAnywhereAndUrlUserLogin, options).then(response => response)
         if (response.ok){
             response.json().then(data => {
                 this.setUserLogin(data)
