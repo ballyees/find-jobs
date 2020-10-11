@@ -66,7 +66,7 @@ export default class App extends React.Component{
           <div className="App">
             <Route exact path="/find-jobs" render={(props) => <Home loginSuccess={this.state.loginSuccess} logout={this.Logout} info={this.state.information} />} />
             <Route exact path="/" render={(props) => <Home loginSuccess={this.state.loginSuccess} logout={this.Logout} info={this.state.information} />} />
-            <Route exact path="/find-jobs/home" render={(props) => <Home loginSuccess={this.state.loginSuccess} logout={this.Logout} info={this.state.information}/>} />
+            <Route exact path="/find-jobs/home" render={(props) => <Home loginSuccess={this.state.loginSuccess} logout={this.Logout} info={this.state.information} Tokenizer={this.state.tokenizer}/>} />
             <Route exact path="/find-jobs/login" render={(props) => <Login loginSuccess={this.state.loginSuccess} Tokenizer={this.state.tokenizer} callBack={this.changeLogin} />} />
             <Route exact path="/find-jobs/register" render={(props) => <Register loginSuccess={this.state.loginSuccess} />} />
             <Route exact path="/find-jobs/data" render={(props) => (isLoginComponent)} />

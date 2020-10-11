@@ -14,10 +14,13 @@ export default class Navbar extends Component{
       this.toggleMenu = this.toggleMenu.bind(this);
     }
 
-    toggleMenu(e){
+    async toggleMenu(e){
       this.setState({ menu: !this.state.menu })
       if(e.target.name === 'logout'){
-        this.props.logout()
+        let success = await this.props.Tokenizer.Logout()
+        if (success){
+          this.props.logout()
+        }
       }
     }
 

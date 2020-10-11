@@ -34,7 +34,7 @@ export default class Login extends React.Component{
     }
 
     SubmitBtn = async () => {
-        let success = this.props.Tokenizer.Login(this.state.email, this.state.password)
+        let success = await this.props.Tokenizer.Login(this.state.email, this.state.password)
         // let success = this.props.Login(this.state.email, this.state.password)
         if (success){
             this.setState({
